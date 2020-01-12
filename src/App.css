@@ -1,0 +1,31 @@
+
+a {
+ color: white !important;
+  text-decoration: underline;
+}
+.img1 > img{
+  height: 100%;
+  width: 65%;
+  position: absolute;
+  left: 35%;
+}
+.main-container {
+  height: 100%;
+  width: 100%;
+}
+.navbar {
+  position: absolute !important;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: .5rem 1rem;
+  width: 100% !important;
+  z-index: 99 !important;
+}
+.row-1{
+  width: 100%;
+}
+.heading{
+  margin-top: 10% !important;
+}
