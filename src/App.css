@@ -14,7 +14,7 @@ a {
   width: 100%;
 }
 .navbar {
-  position: absolute !important;
+  /* position: absolute !important; */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -27,5 +27,5 @@ a {
   width: 100%;
 }
 .heading{
-  margin-top: 10% !important;
+  /* margin-top: 10% !important; */
 }

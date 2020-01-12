@@ -27,12 +27,13 @@ function App() {
     </Form>
   </Navbar>
   </div>
+  <div>
       <Switch>
         <Route path="/" exact component={Test1} />
         <Route path="/hello"  component={Hello} />
         <Route path="/counter"  component={Counter} />
      </Switch>
-
+     </div>
     </div>
     </Router>
   );

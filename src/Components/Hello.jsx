@@ -5,10 +5,20 @@ import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
 
+
+
 class Hello extends Component {
   name="sdfnlsd ";
   arr1=[1,2]
-  arr2=["1data","2data"]
+  arr2=["1data","2data"];
+   contact=[{
+    name:"vikas",
+    pno:"934535"
+  },{
+    name:"Raj",
+    pno:"d989324"
+  
+  }]
   handleClick = () => {
     console.log('this is:', this.arr1);
   }
@@ -20,29 +30,18 @@ class Hello extends Component {
     event.target.username.value=""     
     event.target.pass.value=""
     event.preventDefault();
-
   }
   
-  showdata(){
-        console.log(this.arr1)
+   getdata = async()=>{
+    const data=await fetch('http:localhost:4200/getAllMentors-MIMS');
+    console.log(data)
+
   }
+
+
     render() { 
         return (
           <div className="text-left">
-          {/* <form onSubmit={this.handleSubmit}>
-          <label>
-            Name:
-            <input
-              type="text"
-              name="username"
-            />
-          </label>
-          <Button variant="primary" type="submit">Primary</Button>
-
-        </form>
-        <button onClick={(e) => this.handleClick(e)}>
-        Click me
-      </button> */}
       <Form onSubmit={this.handleSubmit} className="form">
   <Form.Group controlId="formBasicEmail">
     <Form.Label>Email address</Form.Label>
@@ -63,19 +62,25 @@ class Hello extends Component {
     Submit
   </Button>
 </Form><br />
-    <div>{this.arr1.map(t => <Card key={t}  style={{ width: '18rem' }}>{t}</Card>)}
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-    </div>
-    <h2>{this.name}</h2>
-
+ 
+<div className="arrdata"> 
+  {this.contact.map(t=> <h2 key={t}>{t.name},{t.pno}</h2>)}
+</div>
+<Table striped bordered hover variant="dark">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Phone</th>
+    </tr>
+  </thead>
+  <tbody>
+    {this.contact.map(t=> <tr key={t}>
+    <td>{t.name}</td>
+    <td>{t.pno}</td>
+    </tr>)}
+  </tbody>
+</Table>
+<button onClick={this.getdata}>get data</button>
         </div>
 );
     }
