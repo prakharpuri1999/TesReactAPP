@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Carousel from 'react-bootstrap/Carousel'
 import Navbar from 'react-bootstrap/Navbar'
+import { Redirect } from "react-router-dom";
 
 class Counter extends Component {
   name;
@@ -20,8 +21,10 @@ class Counter extends Component {
     alert('A name was submitted: ' + this.state.value);
     event.preventDefault();
     this.name=event.target.value
-  
   }
+  nav=()=>{
+    console.log("any")
+    this.props.history.push('/hello')   }
     obj={
         image:"test image"
     }
@@ -35,6 +38,7 @@ class Counter extends Component {
           <input type="submit" value="Submit" />
         </form>
         <h2>{this.name}</h2>
+        <button onClick={this.nav}>Click</button>
         </div>
             )
     }

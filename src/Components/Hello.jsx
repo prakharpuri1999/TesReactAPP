@@ -7,16 +7,22 @@ import Card from 'react-bootstrap/Card'
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-
+import { createBrowserHistory as history} from 'history';
+import { Redirect } from 'react-router-dom'
+import { useHistory } from "react-router-dom";
 
 
 
 class Hello extends Component {
+  
+  
   constructor(props) {
     super(props);
-    // Don't call this.setState() here!
-  //  this.state = { counter: 0 };
+   this.state = { counter: 0 };
   
+  }
+  navigate(){
+    this.props.history.push("/first");
   }
   
   name="sdfnlsd ";
@@ -68,7 +74,7 @@ class Hello extends Component {
   <Form.Group controlId="formBasicCheckbox">
     <Form.Check type="checkbox" label="Check me out" />
   </Form.Group>
-  <Button variant="primary" type="submit">
+  <Button variant="primary" type="submit" >
     Submit
   </Button>
 </Form><br />
@@ -90,7 +96,7 @@ class Hello extends Component {
     </tr>)}
   </tbody>
 </Table>
-<button onClick={this.getdata}>get data</button>
+<button onClick={this.navigate}>get data</button>
         </div>
 );
     }
