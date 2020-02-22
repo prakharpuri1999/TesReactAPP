@@ -4,10 +4,21 @@ import {ButtonToolbar} from 'react-bootstrap';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form'
 import Card from 'react-bootstrap/Card'
+import Rating from '@material-ui/lab/Rating';
+import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
+
 
 
 
 class Hello extends Component {
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
+  //  this.state = { counter: 0 };
+  
+  }
+  
   name="sdfnlsd ";
   arr1=[1,2]
   arr2=["1data","2data"];
@@ -32,9 +43,8 @@ class Hello extends Component {
     event.preventDefault();
   }
   
-   getdata = async()=>{
-    const data=await fetch('http:localhost:4200/getAllMentors-MIMS');
-    console.log(data)
+   getdata=() =>{
+   console.log("hey")
 
   }
 
@@ -85,7 +95,9 @@ class Hello extends Component {
 );
     }
     
+    
 }
+
 
  
 export default Hello;
