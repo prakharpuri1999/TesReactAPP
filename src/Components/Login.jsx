@@ -1,6 +1,40 @@
 import React, { Component } from 'react';
 import '../index.css'
+import Button from "react-bootstrap/Button";
+import TextField from "@material-ui/core/TextField";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import FormHelperText from "@material-ui/core/FormHelperText";
+import Snackbar from "@material-ui/core/Snackbar";
+import leftimg from "../image/login.png";
+import Card from "react-bootstrap/Card";
+import CardContent from "@material-ui/core/CardContent";
+import Typography from "@material-ui/core/Typography";
+import Grid from "@material-ui/core/Grid";
+import Container from "react-bootstrap/Container";
+import { withStyles } from "@material-ui/core/styles";
 
+const styles = theme => ({
+	root: {
+	  Width: 50
+	},
+	bullet: {
+	  display: "inline-block",
+	  margin: "0 2px",
+	  transform: "scale(0.8)"
+	},
+	title: {
+	  fontSize: 14
+	},
+	pos: {
+	  marginBottom: 12
+	},
+	root2: {
+	  "& > *": {
+		margin: theme.spacing(1)
+	  }
+	}
+  });
 
 class Login extends Component {
   constructor(props) {
@@ -18,64 +52,129 @@ class Login extends Component {
    
 
     render() { 
-  
+      const { classes } = this.props;
+
         return (
-  <div className="main">    
-   <h2>Weekly Coding Challenge #1: Sign in/up Form</h2>
-<div class="container" id="container">
-	<div class="form-container sign-up-container">
-		<form action="#">
-			<h1>Create Account</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			<Grid item xs={12}>
+			{/* Signup CARD */}
+			<div className="mainCard">
+			  <Container>
+				<Row className="justify-content-md-center">
+				  <Col md="auto">
+					<Card className={classes.root} style={{ border: "none" }}>
+					  <CardContent>
+						<Row>
+						  <Col>
+							<img src={leftimg} alt="main" className="leftImage" />
+						  </Col>
+						  <Col
+							className="justify-content-md-center"
+							style={{ marginTop: "10%" }}
+						  >
+							<form
+							  className={classes.root2}
+							  autoComplete="off"
+							  onSubmit={this.handleSubmit}
+							>
+							  <Typography>
+								<b style={{ fontSize: "20px" }}>Sign Up</b>
+							  </Typography>
+							  <Typography
+								variant="body2"
+								color="textSecondary"
+								component="p"
+							  >
+								<b>Enter your details below</b>
+							  </Typography>
+							  <TextField
+								type="text"
+								id="outlined-basic"
+								name="name"
+								label="Name"
+		
+								variant="outlined"
+								style={{ width: "100%" }}
+								pattern="[a-zA-Z ]*"
+								size="small"
+								required
+							  />
+							  <br />
+							  <TextField
+								type="email"
+								id="outlined-basic"
+								label="Email"
+								variant="outlined"
+								style={{ width: "100%" }}
+								size="small"
+							
+								required
+							  />
+							  <TextField
+								id="outlined-basic"
+								name="password"
+								label="Password"
+								variant="outlined"
+								size="small"
+								style={{ width: "100%" }}
+								type="password"
+							  />
+						
+							  <TextField
+								id="outlined-basic"
+								name="confirmPassword"
+								label="Confirm Password"
+								variant="outlined"
+								size="small"
+								style={{ width: "100%" }}
+								type="password"
+							  />
+	
+							 
+							  <TextField
+								id="outlined-basic"
+								name="phone"
+								label="Phone"
+								variant="outlined"
+								size="small"
+								style={{ width: "100%" }}
+								type="number"
+								
+								onInput={e => {
+								  e.target.value = Math.max(
+									0,
+									parseInt(e.target.value)
+								  )
+									.toString()
+									.slice(0, 10);
+								}}
+								required
+							  />
+							
+							  <FormHelperText id="standard-weight-helper-text">
+								At least 10 Characters
+							  </FormHelperText>
+							  <br />
+	
+							  <Button
+								variant="primary"
+								size="lg"
+								block
+								type="submit"
+							  >
+								Sign Up
+							  </Button>
+							  <br />
+							</form>
+						  </Col>
+						</Row>
+					  </CardContent>
+					</Card>
+				  </Col>
+				</Row>
+			  </Container>
 			</div>
-			<span>or use your email for registration</span>
-			<input type="text" placeholder="Name" />
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<button>Sign Up</button>
-		</form>
-	</div>
-	<div class="form-container sign-in-container">
-		<form action="#">
-			<h1>Sign in</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
-			<input type="password" placeholder="Password" />
-			<input type="password" placeholder="Password" />
 
-			<a href="#">Forgot your password?</a>
-			<button>Sign In</button>
-		</form>
-	</div>
-	<div class="overlay-container">
-		<div class="overlay">
-			<div class="overlay-panel overlay-left">
-				<h1>Welcome Back!</h1>
-				<p>To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
-			</div>
-			<div class="overlay-panel overlay-right">
-				<h1>Hello, Friend!</h1>
-				<p>Enter your personal details and start journey with us</p>
-				<button class="ghost" id="signUp">Sign Up</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-</div>
-
+		  </Grid>
 
         );
     }
@@ -83,4 +182,4 @@ class Login extends Component {
 }
   
  
-export default Login;
+export default  withStyles(styles)(Login);
