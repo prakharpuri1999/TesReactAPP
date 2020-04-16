@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import Counter from "./Components/Counter"
-import {BrowserRouter as Router,Route,
-    Redirect,Switch} from 'react-router-dom';
+import 'antd/dist/antd.css'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
