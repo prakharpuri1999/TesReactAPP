@@ -4,13 +4,23 @@ import { Table } from "antd";
 
 const columns = [
   {
-    title: "ID",
+    title: "ID Of The Repo",
     dataIndex: "key",
     key: "key",
   },
+  {
+    title: "Name Of The Repo",
+    dataIndex: "name",
+    key: "name",
+  },
+  {
+    title: "Full Name Of The Repo",
+    dataIndex: "fname",
+    key: "fname",
+  },
 
   {
-    title: "html_url",
+    title: "URL Of The Repo",
     dataIndex: "html_url",
     key: "html_url",
   },
@@ -24,15 +34,15 @@ class gitHub extends Component {
   githubDataArray = [];
   componentDidMount() {
     axios
-      .get("https://api.github.com/users/vikasprashar99/repos")
+      .get("https://api.github.com/users/Rajat012k/repos")
       .then((res) => {
-        console.log(res.data[0].id);
-        console.log(res.data[0].html_url);
         this.githubDataArray = res.data;
 
         const results = this.githubDataArray.map((row) => ({
           key: row.id,
           html_url: row.html_url,
+          name: row.name,
+          fname: row.full_name,
         }));
         this.setState({ gitHubData: results });
       })
@@ -43,7 +53,6 @@ class gitHub extends Component {
   render() {
     return (
       <div>
-        <h1>gitHub Repos</h1>
         <Table columns={columns} dataSource={this.state.gitHubData} />
       </div>
     );

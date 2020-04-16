@@ -1,11 +1,7 @@
 import React, { Component } from "react";
-import { Menu } from "antd";
-import {
-  MailOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-} from "@ant-design/icons";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Nav } from "react-bootstrap";
+import { Navbar } from "react-bootstrap";
 
 class dashboard extends Component {
   constructor(props) {
@@ -14,22 +10,22 @@ class dashboard extends Component {
   }
   render() {
     return (
-      <div style={{ justifyContent: "center" }}>
-        <h1>Dashboard</h1>
-        <Menu selectedKeys={[this.state.current]} mode="horizontal">
-          <Menu.Item key="mail">
-            <Link to="gitHub">Git Repo </Link>
-          </Menu.Item>
-          <Menu.Item key="app">
-            <Link to="creditCard">Credit Card </Link>
-          </Menu.Item>
-          <Menu.Item key="alipay">
-            <Link to="Login">Login </Link>
-          </Menu.Item>
-          <Menu.Item key="corona">
-            <Link to="corona">CoronaUpdates </Link>
-          </Menu.Item>
-        </Menu>
+      <div>
+        <Navbar sticky="top" bg="dark" expand="lg">
+          <Navbar.Brand style={{ color: "white" }}>
+            Assignment Qversity
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+              <Link to="/creditCard">Credit Card</Link>
+              &nbsp;&nbsp;&nbsp;
+              <Link to="/gitHub">GitHub Repo</Link>
+              &nbsp;&nbsp;&nbsp;<Link to="/Login">Signup</Link>
+              &nbsp;&nbsp;&nbsp;<Link to="/corona">Corona Info</Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
       </div>
     );
   }
