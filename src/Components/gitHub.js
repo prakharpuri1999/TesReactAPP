@@ -1,7 +1,9 @@
+// REQD IMPORTS
 import React, { Component } from "react";
 import axios from "axios";
 import { Table } from "antd";
 
+// DATASTRUCTURE FOR THE UI
 const columns = [
   {
     title: "ID Of The Repo",
@@ -32,6 +34,8 @@ class gitHub extends Component {
   }
 
   githubDataArray = [];
+
+  // API FUNCTION
   componentDidMount() {
     axios
       .get("https://api.github.com/users/Rajat012k/repos")
@@ -50,6 +54,7 @@ class gitHub extends Component {
         console.log(err);
       });
   }
+
   render() {
     return (
       <div>

@@ -1,3 +1,4 @@
+// REQD IMPORTS
 import React, { Component } from "react";
 import "../index.css";
 import Button from "react-bootstrap/Button";
@@ -12,7 +13,6 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Container from "react-bootstrap/Container";
 import { Divider } from "antd";
-
 import {
   LinkedinFilled,
   SmileOutlined,
@@ -21,9 +21,9 @@ import {
   FacebookFilled,
   GooglePlusSquareFilled,
 } from "@ant-design/icons";
-
 import { withStyles } from "@material-ui/core/styles";
 
+// STYLING
 const styles = (theme) => ({
   root: {
     Width: 50,
@@ -51,14 +51,6 @@ class Login extends Component {
     super(props);
     console.log(this.props);
   }
-
-  handleSocialLogin = (user) => {
-    console.log(user);
-  };
-
-  handleSocialLoginFailure = (err) => {
-    console.error(err);
-  };
 
   render() {
     const { classes } = this.props;

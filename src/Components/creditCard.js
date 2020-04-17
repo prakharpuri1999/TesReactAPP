@@ -1,6 +1,5 @@
+// REQD IMPORTS
 import React, { Component } from "react";
-
-// import MainScreen from './screens/MainScreen';
 import MainScreen from "../screens/MainScreen";
 class creditCard extends Component {
   constructor(props) {
@@ -11,6 +10,7 @@ class creditCard extends Component {
   render() {
     return (
       <div>
+        {/* Getting component mainscreen */}
         <MainScreen />
       </div>
     );
